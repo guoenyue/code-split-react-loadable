@@ -17,7 +17,7 @@ const source={
     List:()=>import("../Container/List"),
     Detail:()=>import("../Container/Detail")
 };
-const lazyloadComponent=(component)=>()=>(Loadable({loader: () => source[component](),loading:Loading}));
+const lazyloadComponent=(component)=>(Loadable({loader: () => source[component](),loading:Loading}));
 
 //测试通过变量require,但是报错,require.context不是一个函数
 // const source={
@@ -31,10 +31,10 @@ const lazyloadComponent=(component)=>()=>(Loadable({loader: () => source[compone
 const Routers=()=>(
     <HashRouter>
         <Switch>
-            <Route path="/home" component={lazyloadComponent("Home")()}></Route>
-            <Route path="/list" component={lazyloadComponent("List")()}></Route>
-            <Route path="/detail" component={lazyloadComponent("Detail")()}></Route>
-            <Route path="/" exact={true} component={lazyloadComponent("App")()}></Route>
+            <Route path="/home" component={lazyloadComponent("Home")}></Route>
+            <Route path="/list" component={lazyloadComponent("List")}></Route>
+            <Route path="/detail" component={lazyloadComponent("Detail")}></Route>
+            <Route path="/" exact={true} component={lazyloadComponent("App")}></Route>
         </Switch>
     </HashRouter>
 );
